@@ -1,0 +1,3 @@
+D:/vscode project/learn/markdown/cpp/8.6/build/CMakeFiles/Sales_data_program.dir
+D:/vscode project/learn/markdown/cpp/8.6/build/CMakeFiles/edit_cache.dir
+D:/vscode project/learn/markdown/cpp/8.6/build/CMakeFiles/rebuild_cache.dir
