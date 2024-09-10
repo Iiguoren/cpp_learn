@@ -155,3 +155,22 @@ int main()
 ```
 vector中每个元素为一个单词，operator>>（流提取运算符）用于从输入流中读取数据时，以空白字符（如空格、制表符、换行符等）作为分隔符来读取内容。每次 ifs >> buf 的调用都会从文件流 ifs 中读取下一个单词，直到遇到空白字符为止。
 
+## 文件模式
+|模式|作用||
+|----|----|----|
+|in|只读|只可以对ifstream和fstream使用|
+|out|只写|只可以对ofstream和fstream使用|
+|app|写操作前定位末尾|使用app隐式使用out|
+|ate|打开文件后定位末尾||
+|trunc|截断|out下默认trunc|
+|binary|二进制方式IO||
+*使用方法*：
+```cpp
+ofstream out; //定义空文件输出流
+out.open("file"); //默认out trunc
+out.close(); //关闭out使用其他文件
+out.open("precious", ofstream::app) //模式out app
+out.close();
+```
+
+## string流
