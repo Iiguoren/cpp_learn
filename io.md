@@ -25,6 +25,10 @@ w开头的类型是用来读取宽字符类型wchar_t。
 同理，类型ofstream和ostringstream都继承自ostream。
 * io对象不能拷贝和赋值
 
+* >>是“提取运算符”（extraction operator），用于从流中提取数据。所以当你使用istringstream时，>>表示“从这个流中提取数据”。
+
+* <<运算符相反，它是“插入运算符”（insertion operator），用于将数据插入到流中，比如向cout插入数据。
+
 ## istream/ostream输入输出流
 输入输出流对象为cin/cout。这是标准库内置的对象不用重新创建。
 ```cpp
@@ -34,14 +38,14 @@ std::cout<<a<<std::endl;
 return 0;
 ```
 使用<<插入操作符将数据发送到输出流；>>提取操作符用于从输入流独取数据。
-## 确认流的状态：
+### 确认流的状态：
 ```cpp
 while (cin>>word)
     //ok:读取成功
 ```
 输入成功返回true,反之返回false；
 
-## 流的状态类型:iostate
+### 流的状态类型:iostate
 流对象的rdstate成员返回一个iostate值，表示其状态。
 ```cpp
 aotu old_state =cin.rdstate();//返回cin当前状态
@@ -69,9 +73,10 @@ cout<<"hi"<<ends;
 **unitbuf**如果希望每次输出操作后都刷新缓冲区，使用unitbuf操作符，在每次写操作后进行一次flush。
 **nounitbuf**重置流，恢复正常刷新机制。
 
-## 关联输入和输出流
+### 关联输入和输出流
 若一输入流被关联到一个输出流时，任何试图从输入流读取数据的操作都会先刷新关联的输出流。标准库中，**cin和cout是关联的。**
 `cin>>ival;`
+
 
 ## 文件流
 头文件中ifstream定义了三个类型支持文件IO:
@@ -116,7 +121,7 @@ int main() {
 ```
 `cin.gcount()`返回上一次读取操作中实际读取的字符数。
 
-## open和colse
+### open和colse
 如果定义了一个空文件流对象，随后何以用open来将他和文件关联起来。对一个已经被打开的文件流open会失败，failbit被置位；
 ```cpp
 ifstream in(ifile);
@@ -155,7 +160,7 @@ int main()
 ```
 vector中每个元素为一个单词，operator>>（流提取运算符）用于从输入流中读取数据时，以空白字符（如空格、制表符、换行符等）作为分隔符来读取内容。每次 ifs >> buf 的调用都会从文件流 ifs 中读取下一个单词，直到遇到空白字符为止。
 
-## 文件模式
+### 文件模式
 |模式|作用||
 |----|----|----|
 |in|只读|只可以对ifstream和fstream使用|
@@ -174,3 +179,17 @@ out.close();
 ```
 
 ## string流
+### istringstream:
+对字符串进行读操作
+读取名字：
+```cpp
+istringstream record(line); //将字符串输入流绑定line
+record >> info.name;  //将line的字符串输入到结构体的name,默认第一个“ ”结束
+```
+### ostringstream:
+对字符串进行读操作
+```cpp
+ostringstream formatted, badNums;  //创建两个字符串输出流
+badNums<<" "<<nums; //存入badNums
+formatted<<" "<<format(nums); //存入formatted
+```
