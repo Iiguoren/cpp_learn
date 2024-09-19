@@ -11,10 +11,10 @@ int main(){
     if(ifs){
         while(getline(ifs, buff))
         {
-            v1.push_back(buff);
+            vec.push_back(buff);
         }
     }
-    for(const auto &s : v1)
+    for(const auto &s : vec)
         cout<<s<<endl;
     
     return 0;
