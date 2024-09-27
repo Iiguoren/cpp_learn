@@ -1,4 +1,4 @@
-#include <mingw.thread.h>
+#include <thread>
 #include <iostream>
 
 class A{
