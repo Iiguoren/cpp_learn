@@ -1,5 +1,5 @@
 #include <iostream>
-#include <mingw.thread.h>
+#include <thread>
 #include <string>
 void printhelloworld(std::string msg){
     std::cout<<msg<<std::endl;

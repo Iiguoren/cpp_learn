@@ -1,5 +1,5 @@
-#include <mingw.thread.h>
-#include <mingw.mutex.h>
+#include <thread>
+#include <mutex>
 #include <iostream>
 
 int a = 0;
