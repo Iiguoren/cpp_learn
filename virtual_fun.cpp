@@ -3,7 +3,7 @@
 class Basic{
 public:
     Basic();
-    virtual ~Basic();
+    virtual ~Basic(); // 析构写为虚函数，确保通过基类调用子类对象可以正确使用子类的析构函数
 private:
     void *buf;
 };
